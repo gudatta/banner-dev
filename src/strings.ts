@@ -7,14 +7,14 @@ export const setContext = (context, sourceUrl?: string) => {
     ContextInfo.setPageContext(context.pageContext);
 
     // Update the source url
-    Strings.SourceUrl = sourceUrl || ContextInfo.webServerRelativeUrl;
-    Strings.ConfigUrl = Strings.SourceUrl + "/SiteAssets/banner.html";
+    updateConfigWeb(sourceUrl || ContextInfo.webServerRelativeUrl);
 }
 
 // Updates the config web target
 export const updateConfigWeb = (webUrl:string) => {
     // Set the url
-    Strings.ConfigUrl = webUrl + "/SiteAssets/sp-banner/banner.html";
+    Strings.SourceUrl = webUrl;
+    Strings.ConfigUrl = Strings.SourceUrl + "/SiteAssets/sp-banner/banner.html";
 }
 
 /**

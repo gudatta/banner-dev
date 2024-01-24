@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "webpack --mode=development",
-    "prod": "webpack --mode=production"
+    "prod": "webpack --mode=production",
+    "test": "npm run build && cd spfx && gulp serve"
   },
   "repository": {
     "type": "git",
