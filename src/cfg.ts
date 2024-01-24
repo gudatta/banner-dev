@@ -3,7 +3,7 @@ import { Helper } from "gd-sprest-bs";
 /**
  * Configuration
  */
-export const Configuration = Helper.SPConfig({
+export const Configuration = (webUrl: string) => Helper.SPConfig({
     CustomActionCfg: {
         Site: [
             {
@@ -12,7 +12,14 @@ export const Configuration = Helper.SPConfig({
                 Description: "Displays a banner in IE browsers.",
                 Location: "ScriptLink",
                 Scope: 100000,
-                ScriptBlock: 'var s = document.createElement("script"); s.src = "/sites/dev/siteassets/sp-banner/sp-banner.js"; document.head.appendChild(s); SP.SOD.executeOrDelayUntilScriptLoaded(function() { var el=document.createElement("div"); document.body.insertBefore(el, document.body.firstChild); SPBanner(el); }, "sp-banner");'
+                ScriptBlock: `
+                    var s = document.createElement("script");
+                    s.src = ${webUrl}/SiteAssets/sp-banner/sp-banner.js";
+                    document.head.appendChild(s); SP.SOD.executeOrDelayUntilScriptLoaded(function() {
+                        var el=document.createElement("div");
+                        document.body.insertBefore(el, document.body.firstChild);
+                        SPBanner(el);
+                    }, "sp-banner");`.trim()
             }
         ]
     }
