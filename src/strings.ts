@@ -11,6 +11,12 @@ export const setContext = (context, sourceUrl?: string) => {
     Strings.ConfigUrl = Strings.SourceUrl + "/SiteAssets/banner.html";
 }
 
+// Updates the config web target
+export const updateConfigWeb = (webUrl:string) => {
+    // Set the url
+    Strings.ConfigUrl = webUrl + "/SiteAssets/sp-banner/banner.html";
+}
+
 /**
  * Global Constants
  */
