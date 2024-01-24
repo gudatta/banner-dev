@@ -14,7 +14,7 @@ const GlobalVariable = (el: HTMLElement) => {
         return;
     }
 
-    // See if this is a popup dialog, and do nothing
+    // See if this is a popup dialog for a classic page, and do nothing
     if (document.location.search.indexOf("IsDlg") > 0) { return; }
 
     // Get the message
